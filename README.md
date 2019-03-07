@@ -2,6 +2,8 @@ Create nice directory listings for s3 buckets using only javascript and HTML.
 
 The listing can be deployed on any site and can also be deployed into a bucket.
 
+![Screenshot](screenshot.png)
+
 ## Usage
 
 1. Edit the index.html file and modify the BUCKET_URL variable to point to your S3 bucket, e.g. http://wvcc-product-bucket.s3.amazonaws.com.
