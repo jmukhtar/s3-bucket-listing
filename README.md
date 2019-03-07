@@ -31,7 +31,7 @@ The listing can be deployed on any site and can also be deployed into a bucket.
                 "s3:ListBucket"
             ],
             "Resource": [
-                "arn:aws-us-gov:s3:::<Bucket Name>"
+                "arn:aws:s3:::<Bucket Name>"
             ]
         },
         {
@@ -42,7 +42,7 @@ The listing can be deployed on any site and can also be deployed into a bucket.
                 "s3:GetObject"
             ],
             "Resource": [
-                "arn:aws-us-gov:s3:::<Bucket Name>/*"
+                "arn:aws:s3:::<Bucket Name>/*"
             ]
         }
     ]
@@ -66,7 +66,7 @@ The listing can be deployed on any site and can also be deployed into a bucket.
                 "s3:ListBucket"
             ],
             "Resource": [
-                "arn:aws-us-gov:s3:::<Bucket Name>"
+                "arn:aws:s3:::<Bucket Name>"
             ],
             "Condition": {
                 "IpAddress": {
@@ -86,7 +86,7 @@ The listing can be deployed on any site and can also be deployed into a bucket.
                 "s3:GetObject"
             ],
             "Resource": [
-                "arn:aws-us-gov:s3:::<Bucket Name>/*"
+                "arn:aws:s3:::<Bucket Name>/*"
             ],
             "Condition": {
                 "IpAddress": {
