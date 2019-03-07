@@ -17,7 +17,7 @@ The listing can be deployed on any site and can also be deployed into a bucket.
 
 4. Edit the bucket policy. Below are different configurations depending on the use case. Copy the appropriate one onto your bucket policy, making sure to update the "Resource" ARN value to point to the target s3 bucket.
 
-  - To allow public access:
+  - To allow public access by setting public access in the ACL use following policy:
 
 ```
 {
@@ -31,7 +31,7 @@ The listing can be deployed on any site and can also be deployed into a bucket.
                 "s3:ListBucket"
             ],
             "Resource": [
-                "arn:aws-us-gov:s3:::my-govcloud-bucket"
+                "arn:aws-us-gov:s3:::<Bucket Name>"
             ]
         },
         {
@@ -42,16 +42,18 @@ The listing can be deployed on any site and can also be deployed into a bucket.
                 "s3:GetObject"
             ],
             "Resource": [
-                "arn:aws-us-gov:s3:::my-govcloud-bucket/*"
+                "arn:aws-us-gov:s3:::<Bucket Name>/*"
             ]
         }
     ]
 }
 ```
-  Note that the "Resource" ARN value for govcloud will be different from public. The example above shows the ARN for govcloud. For public cloud, modify the ARN to `arn:aws:s3:::my-public-bucket`.
+
+
   
 
-  - To restrict to JPL IP addresses only:
+  - To restrict to a IP address or subnet only:
+  
 ```
 {
     "Version": "2012-10-17",
@@ -64,7 +66,7 @@ The listing can be deployed on any site and can also be deployed into a bucket.
                 "s3:ListBucket"
             ],
             "Resource": [
-                "arn:aws-us-gov:s3:::my-govcloud-bucket"
+                "arn:aws-us-gov:s3:::<Bucket Name>"
             ],
             "Condition": {
                 "IpAddress": {
@@ -84,7 +86,7 @@ The listing can be deployed on any site and can also be deployed into a bucket.
                 "s3:GetObject"
             ],
             "Resource": [
-                "arn:aws-us-gov:s3:::my-govcloud-bucket/*"
+                "arn:aws-us-gov:s3:::<Bucket Name>/*"
             ],
             "Condition": {
                 "IpAddress": {
@@ -99,7 +101,10 @@ The listing can be deployed on any site and can also be deployed into a bucket.
     ]
 }
 ```
-  - Assign the following CORS policy
+ 
+ 
+ - Assign the following CORS policy
+
 ```
 <CORSConfiguration>
  <CORSRule>
